@@ -1,55 +1,490 @@
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Privacy policy for Tsk.R: Procrastinateless.">
+  <meta name="description" content="Privacy policy for Tsk.R: Procrastinateless, covering local productivity data, advertising, consent, and data deletion.">
+  <meta name="theme-color" content="#f7faf8">
   <title>Privacy Policy — Tsk.R: Procrastinateless</title>
+
   <style>
-    :root { color-scheme:light; --ink:#17211d; --muted:#52615a; --green:#176b4d }
-    * { box-sizing:border-box }
-    body { margin:0; font:16px/1.7 system-ui,-apple-system,Segoe UI,sans-serif; color:var(--ink); background:#f7faf8 }
-    main { width:min(800px,calc(100% - 32px)); margin:5vh auto; padding:clamp(24px,5vw,48px); background:white; border:1px solid #dce8e0; border-radius:20px }
-    h1 { line-height:1.15; letter-spacing:-.035em }
-    h2 { margin-top:2rem; font-size:1.25rem }
-    p, li { color:#35443c }
-    a { color:var(--green) }
-    .meta { color:var(--muted) }
+    :root {
+      color-scheme: light;
+      --ink: #17211d;
+      --muted: #52615a;
+      --green: #176b4d;
+      --background: #f7faf8;
+      --border: #dce8e0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 1px 0;
+      font: 16px/1.7 system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--background);
+    }
+
+    main {
+      width: min(800px, calc(100% - 32px));
+      margin: 5vh auto;
+      padding: clamp(24px, 5vw, 48px);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgb(23 33 29 / 4%);
+      overflow-wrap: anywhere;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      line-height: 1.15;
+      letter-spacing: -.035em;
+      margin: 1.5rem 0 1rem;
+    }
+
+    h2 {
+      margin-top: 2.5rem;
+      margin-bottom: .75rem;
+      font-size: 1.25rem;
+      line-height: 1.35;
+    }
+
+    h3 {
+      margin-top: 1.5rem;
+      margin-bottom: .5rem;
+      font-size: 1.05rem;
+    }
+
+    p, li {
+      color: #35443c;
+    }
+
+    li + li {
+      margin-top: .6rem;
+    }
+
+    a {
+      color: var(--green);
+      text-underline-offset: 3px;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--green);
+      outline-offset: 3px;
+    }
+
+    code {
+      overflow-wrap: anywhere;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .notice {
+      padding: 1rem 1.1rem;
+      border-left: 4px solid var(--green);
+      background: #f2f8f4;
+      border-radius: 0 10px 10px 0;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    @media (max-width: 480px) {
+      main {
+        width: calc(100% - 20px);
+        margin: 10px auto;
+        padding: 22px 18px;
+        border-radius: 14px;
+      }
+
+      h2 {
+        margin-top: 2rem;
+      }
+    }
   </style>
 </head>
+
 <body>
 <main>
   <p><a href="index.html">← Brixavier developer site</a></p>
+
   <h1>Privacy Policy for Tsk.R: Procrastinateless</h1>
-  <p class="meta"><strong>Effective Date:</strong> October 14, 2026<br><strong>Developer:</strong> Brixavier (<code>com.brixavier.tskr</code>)</p>
+
+  <p class="meta">
+    <strong>Effective Date:</strong> October 19, 2026<br>
+    <strong>Developer:</strong> Brixavier<br>
+    <strong>Package Name:</strong> <code>com.brixavier.tskr</code><br>
+    <strong>Contact:</strong>
+    <a href="mailto:brixavier03@gmail.com">brixavier03@gmail.com</a>
+  </p>
+
   <h2>1. Overview</h2>
-  <p>Tsk.R: Procrastinateless (“the App”) is committed to protecting your privacy. This Privacy Policy explains how your information is handled when you use the App. Tsk.R is designed as an offline-first productivity application, meaning your personal task, plan, and note data remains strictly local to your device.</p>
-  <h2>2. Information Collection and Storage</h2>
+
+  <p>
+    Tsk.R: Procrastinateless ("Tsk.R" or "the App") is a productivity
+    application designed to help users manage tasks, reminders, plans,
+    notes, checklists, and related personal productivity information.
+  </p>
+
+  <p>
+    Tsk.R follows an offline-first approach. Your productivity content is
+    stored locally on your device rather than in a developer-operated cloud
+    account or database. However, the App also integrates Google services
+    for advertising, consent management, in-app updates, and optional
+    in-app review functionality. These services may process certain
+    technical and advertising-related information as described below.
+  </p>
+
+  <p class="notice">
+    <strong>In short:</strong> Tsk.R does not send your task titles, reminder
+    notes, plans, checklist content, or other personal productivity content
+    to the developer's servers or intentionally provide that content to
+    advertising services.
+  </p>
+
+  <h2>2. Information Collection and Local Storage</h2>
+
+  <h3>Local Task and Productivity Data</h3>
+
+  <p>
+    Information you create in Tsk.R may include task titles, descriptions,
+    due dates, reminder settings, plan steps, notes, checklist items,
+    calendar-related entries, and app preferences.
+  </p>
+
+  <p>
+    This information is stored in the App's private storage on your device,
+    using its local SQLite/Room database and local preferences. The
+    developer does not operate a cloud service that receives or stores
+    this productivity content.
+  </p>
+
+  <h3>Personal Accounts</h3>
+
+  <p>
+    Tsk.R does not require account registration or sign-in to use its core
+    productivity features. The developer does not operate an account
+    system for storing your productivity information.
+  </p>
+
+  <h3>Device and Advertising Information</h3>
+
+  <p>
+    Although your productivity content remains local, Google Mobile Ads
+    and related Google services may process information needed to provide
+    advertising and related functionality. Depending on the service,
+    applicable settings, and consent requirements, this may include:
+  </p>
+
   <ul>
-    <li><strong>Local Task &amp; Productivity Data:</strong> All task titles, due dates, notes, plan steps, and checklist items created within Tsk.R are stored locally on your device using a private local SQLite/Room database in application-private storage. We do not transmit, collect, or store your personal task or plan content on external cloud servers.</li>
-    <li><strong>No Personal Account Data:</strong> We do not require account registration or collect personally identifiable information (PII) such as your name, email address, phone number, or physical location.</li>
+    <li>
+      <strong>Approximate location:</strong> An IP address may be used to
+      estimate a general location, such as a region or city. Tsk.R does not
+      ask you to enter your physical location for its productivity features.
+    </li>
+    <li>
+      <strong>Device or other identifiers:</strong> Advertising IDs and
+      other device identifiers may be processed for advertising, analytics,
+      frequency capping, and fraud prevention.
+    </li>
+    <li>
+      <strong>App interactions:</strong> Advertising-related interactions,
+      such as ad impressions and clicks, may be processed by the advertising
+      SDK.
+    </li>
+    <li>
+      <strong>Diagnostics and performance information:</strong> Technical
+      information, such as SDK diagnostics, ad-loading performance, and
+      related performance signals, may be processed to support service
+      reliability, analytics, and security.
+    </li>
   </ul>
-  <h2>3. Permissions Used</h2>
-  <p>To provide core functionality and advertising integration, Tsk.R requests the following Android system permissions:</p>
+
+  <p>
+    These categories describe possible processing by integrated Google
+    services. Actual processing may vary according to the services used,
+    your device settings, and applicable consent requirements.
+  </p>
+
+  <h2>3. How Information Is Used</h2>
+
+  <p>Information handled by Tsk.R and its integrated services is used for
+    the following purposes, as applicable:</p>
+
   <ul>
-    <li><strong>Internet &amp; Network Access (<code>INTERNET</code> / <code>ACCESS_NETWORK_STATE</code>):</strong> Required to serve Google AdMob advertisements and manage User Messaging Platform (UMP) privacy consent choices.</li>
-    <li><strong>Exact Alarms (<code>SCHEDULE_EXACT_ALARM</code>):</strong> Required to trigger time-sensitive task reminders and Mission Mode notification alerts precisely when due.</li>
-    <li><strong>Notifications (<code>POST_NOTIFICATIONS</code>):</strong> Required to display upcoming task warnings and countdown alerts on Android 13+.</li>
-    <li><strong>Vibration &amp; Audio (<code>VIBRATE</code> / <code>WAKE_LOCK</code> / <code>DISABLE_KEYGUARD</code> / <code>USE_FULL_SCREEN_INTENT</code>):</strong> Required to trigger haptic feedback, keep screen active during alarm events, and launch full-screen Mission Mode alerts when due.</li>
+    <li>
+      <strong>Productivity functionality:</strong> To create, organize,
+      schedule, and display your tasks, reminders, plans, notes, and
+      checklist items locally.
+    </li>
+    <li>
+      <strong>Reminder delivery:</strong> To schedule and display reminders
+      and related alerts.
+    </li>
+    <li>
+      <strong>Advertising:</strong> To request and display advertisements
+      through Google Mobile Ads.
+    </li>
+    <li>
+      <strong>Consent management:</strong> To present and apply advertising
+      privacy choices through Google's User Messaging Platform (UMP), where
+      applicable.
+    </li>
+    <li>
+      <strong>Analytics and diagnostics:</strong> Google advertising
+      services may process technical information and advertising interactions
+      for service measurement and performance analysis.
+    </li>
+    <li>
+      <strong>Security and fraud prevention:</strong> Advertising-related
+      information may be processed to detect and prevent invalid activity
+      and protect the advertising service.
+    </li>
+    <li>
+      <strong>Updates and reviews:</strong> Google Play services may be used
+      to check for app updates and offer an optional in-app review flow.
+    </li>
   </ul>
-  <h2>4. Third-Party Services and Advertising</h2>
+
+  <h2>4. Third-Party Services and Data Sharing</h2>
+
+  <h3>Google Mobile Ads (AdMob)</h3>
+
+  <p>
+    Tsk.R integrates the Google Mobile Ads SDK to display advertisements.
+    The SDK and its related services may collect or share certain
+    advertising-related information, including IP addresses, device
+    identifiers, advertising interactions, and diagnostics, as applicable.
+    Google may use this information for ad delivery, measurement,
+    analytics, frequency capping, and fraud prevention.
+  </p>
+
+  <h3>Google User Messaging Platform (UMP)</h3>
+
+  <p>
+    Tsk.R integrates Google's User Messaging Platform to manage advertising
+    consent and privacy choices where required. The consent flow and
+    available choices depend on applicable legal requirements and the
+    user's region and settings.
+  </p>
+
+  <h3>Google Play Services</h3>
+
+  <p>
+    Tsk.R uses Google Play services for supported in-app update and review
+    functionality. These services communicate with Google Play as needed
+    to provide those features. Tsk.R does not intentionally send your task
+    titles, notes, plans, or checklist content through these interactions.
+  </p>
+
+  <h3>What Is Not Shared</h3>
+
+  <p>
+    Tsk.R does not intentionally transmit your personal productivity
+    content to Google Mobile Ads, UMP, or Google Play review services.
+    The developer does not operate a backend service that collects,
+    stores, or analyzes your task content.
+  </p>
+
+  <p>
+    Third-party providers may process information under their own privacy
+    policies, service terms, and applicable legal requirements. For more
+    information, review
+    <a href="https://policies.google.com/privacy" target="_blank"
+       rel="noopener noreferrer">Google's Privacy Policy</a> and the
+    <a href="https://developers.google.com/admob/android/privacy/play-data-disclosure"
+       target="_blank" rel="noopener noreferrer">
+      Google Mobile Ads SDK data disclosure
+    </a>.
+  </p>
+
+  <h2>5. Data Retention and Deletion</h2>
+
+  <h3>Your Productivity Data</h3>
+
+  <p>
+    Your tasks, plans, notes, checklists, and related productivity
+    information remain in the App's private storage on your device until
+    you delete the relevant information or remove the App's stored data.
+  </p>
+
+  <p>You can remove local productivity information by:</p>
+
   <ul>
-    <li><strong>Google Mobile Ads (AdMob) &amp; UMP SDK:</strong> Tsk.R incorporates the Google Mobile Ads SDK (AdMob) and Google User Messaging Platform (UMP) SDK to serve advertisements and manage user privacy choices.</li>
-    <li><strong>Data Safety &amp; Identifiers:</strong> Google processes non-personal device identifiers, advertising IDs, IP addresses, and performance diagnostics for ad serving, frequency capping, and fraud prevention as governed by <a href="https://policies.google.com/privacy">Google’s Privacy Policy</a>. Your personal tasks, plans, and notes are never shared with or accessible to AdMob or any third party.</li>
-    <li><strong>Google Play Services (In-App Updates &amp; Reviews):</strong> Tsk.R interacts with official Google Play Services APIs to check for application updates and facilitate optional Google Play Store reviews. No personal task content, notes, or review text is collected, stored, or processed by Tsk.R during these interactions.</li>
-    <li><strong>Privacy Choices:</strong> Users in applicable regions (such as the European Economic Area, UK, and Switzerland) can manage or revoke their advertising privacy consent at any time via Settings → Privacy Choices within the App.</li>
+    <li>Deleting individual tasks, plans, notes, or other supported items within the App.</li>
+    <li>
+      Clearing Tsk.R's storage through Android Settings → Apps → Tsk.R →
+      Storage. Menu names may vary by device.
+    </li>
+    <li>
+      Uninstalling Tsk.R, which removes its application-private local data
+      under normal Android storage behavior.
+    </li>
   </ul>
-  <h2>5. Children’s Privacy</h2>
-  <p>Tsk.R does not knowingly collect or solicit any personal information from children under the age of 13. The application is a general productivity tool intended for users aged 13 and older.</p>
-  <h2>6. Changes to This Privacy Policy</h2>
-  <p>We may update our Privacy Policy from time to time. Any changes will be reflected by updating the “Effective Date” at the top of this policy.</p>
-  <h2>7. Contact Us</h2>
-  <p>If you have any questions or suggestions regarding this Privacy Policy, please contact the developer at:<br><strong>Email:</strong> <a href="mailto:brixavier03@gmail.com">brixavier03@gmail.com</a></p>
+
+  <p>
+    If you want to preserve information, consider whether you need to
+    retain it before clearing app storage or uninstalling the App.
+  </p>
+
+  <h3>Third-Party Information</h3>
+
+  <p>
+    Google and other third-party service providers may retain information
+    processed through their services according to their own retention
+    policies, legal obligations, and applicable settings. Deleting local
+    Tsk.R data does not necessarily delete information already processed
+    by those providers.
+  </p>
+
+  <p>
+    Tsk.R does not provide a developer-operated account or cloud database
+    containing your productivity data, and it does not offer a separate
+    account-deletion web form because users do not create Tsk.R accounts.
+  </p>
+
+  <h2>6. Data Security</h2>
+
+  <p>
+    Tsk.R stores productivity information in application-private storage
+    provided by Android. This helps restrict direct access by other
+    ordinary applications, subject to Android's security model, device
+    configuration, and the security of the device itself.
+  </p>
+
+  <p>
+    Communications made by integrated Google services are subject to the
+    security measures used by those services, including encryption in
+    transit where supported. Please consult Google's privacy and security
+    documentation for further details about its handling of advertising
+    information.
+  </p>
+
+  <p>
+    No method of electronic storage or transmission can be guaranteed to
+    be completely secure. Keeping your device and operating system updated
+    and using appropriate device security settings can help protect your
+    locally stored information.
+  </p>
+
+  <h2>7. Android Permissions</h2>
+
+  <p>
+    Depending on the Android version and features you use, Tsk.R may
+    request permissions or system capabilities for the following purposes:
+  </p>
+
+  <ul>
+    <li>
+      <strong>Internet and network access:</strong> To communicate with
+      Google advertising, consent, and supported Play services.
+    </li>
+    <li>
+      <strong>Alarms and reminders:</strong> To schedule time-sensitive
+      reminders and Mission Mode alerts.
+    </li>
+    <li>
+      <strong>Notifications:</strong> To display reminders and related
+      alerts, subject to Android's notification settings and permission
+      requirements.
+    </li>
+    <li>
+      <strong>Vibration, screen, and alarm-related capabilities:</strong>
+      To provide supported reminder feedback and alarm behavior.
+    </li>
+  </ul>
+
+  <p>
+    Permission availability and behavior depend on your Android version,
+    system settings, and the features you use. Granting a permission does
+    not mean your productivity content is sent to the developer's servers.
+  </p>
+
+  <h2>8. Children's Privacy</h2>
+
+  <p>
+    Tsk.R is a general productivity application and is not designed to
+    target children under the age of 13. The developer does not knowingly
+    collect personal information directly from children through a
+    developer-operated account or backend service.
+  </p>
+
+  <p>
+    Advertising services may have their own age-related requirements and
+    controls. The App's target audience, advertising configuration, and
+    Google Play declarations should remain consistent with its actual
+    intended audience and applicable policies.
+  </p>
+
+  <h2>9. Your Privacy Choices</h2>
+
+  <p>
+    Where supported and applicable, you can manage advertising consent
+    through Settings → Privacy Choices within Tsk.R. The availability of
+    consent options depends on your location, applicable requirements,
+    and the consent state provided by Google's UMP service.
+  </p>
+
+  <p>
+    You can also manage Android permissions and device-level advertising
+    settings through your device's system settings. Changing these
+    settings may affect advertising behavior or certain app features.
+  </p>
+
+  <h2>10. Changes to This Privacy Policy</h2>
+
+  <p>
+    We may update this Privacy Policy when Tsk.R's features, integrated
+    services, data practices, or applicable requirements change. Updates
+    will be published on this page, and the Effective Date above will be
+    revised to indicate when the updated policy takes effect.
+  </p>
+
+  <p>
+    We encourage you to review this page periodically so you can remain
+    informed about how information is handled.
+  </p>
+
+  <h2>11. Contact Us</h2>
+
+  <p>
+    If you have questions, concerns, or suggestions about this Privacy
+    Policy or Tsk.R's privacy practices, contact the developer:
+  </p>
+
+  <p>
+    <strong>Developer:</strong> Brixavier<br>
+    <strong>Email:</strong>
+    <a href="mailto:brixavier03@gmail.com">brixavier03@gmail.com</a>
+  </p>
+
+  <footer>
+    <p>
+      This Privacy Policy describes Tsk.R's intended data practices.
+      Integrated third-party services may process information as described
+      above and under their own policies.
+    </p>
+    <p>© 2026 Brixavier</p>
+  </footer>
 </main>
 </body>
 </html>
