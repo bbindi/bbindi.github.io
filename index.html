@@ -1,37 +1,776 @@
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Official developer website for Tsk.R: Procrastinateless by Brixavier.">
-  <title>Tsk.R: Procrastinateless — Brixavier</title>
+  <meta name="theme-color" content="#f7faf8">
+  <meta name="description" content="Meet Tsk.R: Procrastinateless — the practical, slightly sarcastic productivity app for tasks, plans, and reminders.">
+  <meta property="og:title" content="Tsk.R: Procrastinateless">
+  <meta property="og:description" content="Less putting it off. More getting it done.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bbindi.github.io/">
+  <title>Tsk.R: Procrastinateless — Get it done.</title>
+
   <style>
-    :root { color-scheme: light; --ink:#17211d; --muted:#52615a; --green:#176b4d; --pale:#eaf4ee; }
-    * { box-sizing:border-box }
-    body { margin:0; font:16px/1.65 system-ui,-apple-system,Segoe UI,sans-serif; color:var(--ink); background:#f7faf8 }
-    main { width:min(760px, calc(100% - 32px)); margin:10vh auto; }
-    .card { padding:clamp(28px,6vw,56px); background:white; border:1px solid #dce8e0; border-radius:24px; box-shadow:0 18px 48px #18392a12 }
-    .eyebrow { color:var(--green); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.8rem }
-    h1 { font-size:clamp(2.4rem,8vw,4.5rem); line-height:1.04; letter-spacing:-.055em; margin:.5rem 0 1rem }
-    p { color:var(--muted); max-width:60ch }
-    nav { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px }
-    a.button { padding:12px 18px; border-radius:12px; background:var(--green); color:white; text-decoration:none; font-weight:650 }
-    a.link { padding:12px 4px; color:var(--green); font-weight:650 }
-    footer { margin:22px 4px; color:var(--muted); font-size:.9rem }
+    :root {
+      color-scheme: light;
+      --ink: #17211d;
+      --muted: #59665f;
+      --green: #176b4d;
+      --green-dark: #10533b;
+      --green-soft: #e6f2ea;
+      --paper: #f7faf8;
+      --white: #ffffff;
+      --border: #dce8e0;
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --shadow: 0 18px 55px rgb(23 57 42 / 7%);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font: 16px/1.65 system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--green);
+      text-underline-offset: 4px;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--green);
+      outline-offset: 4px;
+      border-radius: 6px;
+    }
+
+    .container {
+      width: min(1080px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-block: 22px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 850;
+      letter-spacing: -.045em;
+      font-size: 1.25rem;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 43px;
+      height: 43px;
+      border-radius: 15px;
+      background: var(--green);
+      color: white;
+      font-size: 1rem;
+      letter-spacing: -.07em;
+      box-shadow: 0 5px 12px rgb(23 107 77 / 18%);
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+
+    .header-link {
+      font-size: .92rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: clamp(32px, 6vw, 76px);
+      margin-top: 32px;
+      padding: clamp(28px, 6vw, 72px);
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 95% 0%, #e5f2e9 0%, transparent 42%),
+        var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 20px;
+      color: var(--green);
+      font-size: .78rem;
+      font-weight: 850;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    h1 {
+      max-width: 650px;
+      margin: 0;
+      font-size: clamp(3rem, 7vw, 5.7rem);
+      font-weight: 900;
+      letter-spacing: -.075em;
+      line-height: .99;
+    }
+
+    .hero h1 span {
+      color: var(--green);
+    }
+
+    .hero-copy {
+      max-width: 530px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.03rem, 2vw, 1.18rem);
+    }
+
+    .hero-copy strong {
+      color: var(--ink);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 19px;
+      border: 1px solid transparent;
+      border-radius: 13px;
+      font: inherit;
+      font-weight: 750;
+      text-decoration: none;
+      transition: transform .18s ease, background .18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: white;
+      background: var(--green);
+    }
+
+    .button-primary:hover {
+      background: var(--green-dark);
+    }
+
+    .button-secondary {
+      color: var(--ink);
+      background: white;
+      border-color: var(--border);
+    }
+
+    .microcopy {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: .83rem;
+    }
+
+    /* Decorative product illustration */
+
+    .preview {
+      position: relative;
+      max-width: 370px;
+      width: 100%;
+      justify-self: end;
+      padding: 23px;
+      background: #edf5ef;
+      border: 1px solid #d6e6da;
+      border-radius: 25px;
+      transform: rotate(1.5deg);
+    }
+
+    .preview-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 23px;
+    }
+
+    .preview-label {
+      color: var(--muted);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+    }
+
+    .preview-pill {
+      padding: 5px 9px;
+      color: var(--green);
+      background: #d9ecdf;
+      border-radius: 999px;
+      font-size: .7rem;
+      font-weight: 800;
+    }
+
+    .preview h2 {
+      margin: 0 0 6px;
+      font-size: 1.75rem;
+      letter-spacing: -.05em;
+      line-height: 1.2;
+    }
+
+    .preview-subtitle {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: .87rem;
+    }
+
+    .mock-task {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-top: 10px;
+      padding: 15px 13px;
+      background: white;
+      border: 1px solid #e0eae2;
+      border-radius: 14px;
+    }
+
+    .mock-check {
+      flex: 0 0 20px;
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      border: 1.7px solid #a2b9a8;
+      border-radius: 7px;
+    }
+
+    .mock-task strong {
+      display: block;
+      font-size: .88rem;
+      line-height: 1.4;
+    }
+
+    .mock-task small {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: .76rem;
+    }
+
+    .mock-task.completed {
+      opacity: .72;
+    }
+
+    .mock-task.completed .mock-check {
+      display: grid;
+      place-items: center;
+      color: white;
+      background: var(--green);
+      border-color: var(--green);
+    }
+
+    .mock-task.completed .mock-check::after {
+      content: "✓";
+      font-size: .8rem;
+      font-weight: 900;
+    }
+
+    .preview-note {
+      margin: 17px 0 0;
+      color: var(--green-dark);
+      font-size: .82rem;
+      font-weight: 750;
+    }
+
+    .section {
+      padding-top: 94px;
+    }
+
+    .section-heading {
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
+    .section-heading .eyebrow {
+      margin-bottom: 12px;
+    }
+
+    h2.section-title {
+      margin: 0;
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      line-height: 1.1;
+      letter-spacing: -.06em;
+    }
+
+    .section-description {
+      max-width: 580px;
+      margin: 14px 0 0;
+      color: var(--muted);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .feature {
+      min-height: 220px;
+      padding: 25px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+
+    .feature-icon {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 22px;
+      color: var(--green);
+      background: var(--green-soft);
+      border-radius: 15px;
+      font-size: 1.25rem;
+      font-weight: 850;
+    }
+
+    .feature h3 {
+      margin: 0;
+      font-size: 1.15rem;
+      letter-spacing: -.025em;
+    }
+
+    .feature p {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .personality {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 28px;
+      margin-top: 80px;
+      padding: clamp(26px, 5vw, 46px);
+      color: white;
+      background: var(--green-dark);
+      border-radius: var(--radius-lg);
+    }
+
+    .personality .eyebrow {
+      color: #c4e7d0;
+    }
+
+    .personality .eyebrow::before {
+      background: #c4e7d0;
+    }
+
+    .personality h2 {
+      max-width: 660px;
+      margin: 0;
+      font-size: clamp(2rem, 4.5vw, 3.3rem);
+      line-height: 1.1;
+      letter-spacing: -.06em;
+    }
+
+    .personality p {
+      max-width: 600px;
+      margin: 15px 0 0;
+      color: #e0eee5;
+    }
+
+    .personality-mark {
+      display: grid;
+      place-items: center;
+      width: 100px;
+      height: 100px;
+      color: var(--green-dark);
+      background: #d7ecdd;
+      border-radius: 32px;
+      font-size: 1.65rem;
+      font-weight: 950;
+      letter-spacing: -.08em;
+      transform: rotate(5deg);
+    }
+
+    .privacy-strip {
+      display: flex;
+      align-items: flex-start;
+      gap: 17px;
+      margin-top: 28px;
+      padding: 25px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+
+    .privacy-symbol {
+      display: grid;
+      place-items: center;
+      flex: 0 0 42px;
+      height: 42px;
+      color: var(--green);
+      background: var(--green-soft);
+      border-radius: 13px;
+      font-size: 1.15rem;
+      font-weight: 900;
+    }
+
+    .privacy-strip h3 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .privacy-strip p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .privacy-strip a {
+      font-weight: 750;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 70px;
+      padding: 25px 4px 32px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-weight: 650;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 42px;
+      }
+
+      .preview {
+        justify-self: start;
+        max-width: 440px;
+        transform: none;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .feature {
+        min-height: 0;
+      }
+
+      .personality {
+        grid-template-columns: 1fr;
+      }
+
+      .personality-mark {
+        width: 72px;
+        height: 72px;
+        border-radius: 23px;
+      }
+
+      .section {
+        padding-top: 72px;
+      }
+
+      .personality {
+        margin-top: 65px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: calc(100% - 24px);
+      }
+
+      .site-header {
+        padding-block: 15px;
+      }
+
+      .brand-mark {
+        width: 39px;
+        height: 39px;
+      }
+
+      .header-link {
+        font-size: .84rem;
+      }
+
+      .hero {
+        margin-top: 16px;
+        padding: 27px 21px;
+        border-radius: 22px;
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 14vw, 4rem);
+      }
+
+      .preview {
+        padding: 17px;
+        border-radius: 20px;
+      }
+
+      .section {
+        padding-top: 62px;
+      }
+
+      .personality {
+        margin-top: 54px;
+        border-radius: 22px;
+      }
+
+      .privacy-strip {
+        padding: 18px;
+      }
+
+      footer {
+        margin-top: 48px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <main>
-    <section class="card" aria-labelledby="title">
-      <div class="eyebrow">Brixavier · Android apps</div>
-      <h1 id="title">Tsk.R:<br>Procrastinateless</h1>
-      <p>A practical productivity app for tasks, plans, and reminders. Your task and plan content stays on your device.</p>
-      <nav aria-label="Resources">
-        <a class="button" href="privacy-policy.html">Privacy policy</a>
-        <a class="link" href="mailto:brixavier03@gmail.com">Contact developer</a>
-      </nav>
+  <header class="site-header container">
+    <a class="brand" href="index.html" aria-label="Tsk.R home">
+      <span class="brand-mark" aria-hidden="true">tsk.</span>
+      <span>
+        Tsk.R
+        <small>Procrastinateless</small>
+      </span>
+    </a>
+
+    <a class="header-link" href="#features">Meet your new accountability buddy ↓</a>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">A little less later</p>
+
+        <h1 id="hero-title">
+          Your tasks<br>
+          won't do<br>
+          <span>themselves.</span>
+        </h1>
+
+        <p class="hero-copy">
+          Meet <strong>Tsk.R: Procrastinateless.</strong>
+          Your practical, slightly sarcastic sidekick for tasks, plans,
+          and reminders. Because “I'll do it later” has had a good run.
+        </p>
+
+        <div class="actions">
+          <a class="button button-primary" href="#features">
+            See what it does ↓
+          </a>
+          <a class="button button-secondary" href="#privacy">
+            Your privacy
+          </a>
+        </div>
+
+        <p class="microcopy">
+          Less putting it off. More getting it done.
+        </p>
+      </div>
+
+      <!-- Illustrative preview, not a screenshot of the app -->
+      <aside class="preview" aria-label="Illustrative Tsk.R task preview">
+        <div class="preview-top">
+          <span class="preview-label">THE PLAN</span>
+          <span class="preview-pill">One step at a time</span>
+        </div>
+
+        <h2>Let's get moving.</h2>
+        <p class="preview-subtitle">
+          Future you is counting on you.
+        </p>
+
+        <div class="mock-task completed">
+          <span class="mock-check" aria-hidden="true"></span>
+          <div>
+            <strong>Stop making the list</strong>
+            <small>Done. Look at you.</small>
+          </div>
+        </div>
+
+        <div class="mock-task">
+          <span class="mock-check" aria-hidden="true"></span>
+          <div>
+            <strong>Start the actual task</strong>
+            <small>Next up · No dramatic speeches</small>
+          </div>
+        </div>
+
+        <div class="mock-task">
+          <span class="mock-check" aria-hidden="true"></span>
+          <div>
+            <strong>Finish what you started</strong>
+            <small>You've got this. Probably.</small>
+          </div>
+        </div>
+
+        <p class="preview-note">
+          Tiny steps count. Excuses don't.
+        </p>
+      </aside>
     </section>
-    <footer>© 2026 Brixavier</footer>
+
+    <section class="section" id="features" aria-labelledby="features-title">
+      <div class="section-heading">
+        <p class="eyebrow">The useful stuff</p>
+        <h2 class="section-title" id="features-title">
+          Less chaos.<br>More follow-through.
+        </h2>
+        <p class="section-description">
+          Big goals are easier to tackle when you know what to do next.
+          Tsk.R helps you keep track of the little things before they
+          become very large things you forgot about.
+        </p>
+      </div>
+
+      <div class="features">
+        <article class="feature">
+          <div class="feature-icon" aria-hidden="true">↗</div>
+          <h3>Remember it.</h3>
+          <p>
+            Keep tasks and reminders organized, so important things don't
+            have to rely on your memory alone.
+          </p>
+        </article>
+
+        <article class="feature">
+          <div class="feature-icon" aria-hidden="true">☷</div>
+          <h3>Plan it.</h3>
+          <p>
+            Break bigger intentions into steps you can actually work on.
+            A plan is a start. Following it is the trick.
+          </p>
+        </article>
+
+        <article class="feature">
+          <div class="feature-icon" aria-hidden="true">!</div>
+          <h3>Face it.</h3>
+          <p>
+            Mission Mode adds urgency when it's time to act.
+            Your future self would like a word.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="personality" aria-labelledby="personality-title">
+      <div>
+        <p class="eyebrow">Consider this your nudge</p>
+        <h2 id="personality-title">
+          You don't need to do everything today.
+          Just stop postponing the first thing.
+        </h2>
+        <p>
+          Tsk.R is here to help you turn good intentions into actual
+          progress — one reminder, one plan, and one completed task at a time.
+        </p>
+      </div>
+
+      <div class="personality-mark" aria-hidden="true">tsk.R!</div>
+    </section>
+
+    <section class="privacy-strip" id="privacy" aria-labelledby="privacy-title">
+      <div class="privacy-symbol" aria-hidden="true">✓</div>
+      <div>
+        <h3 id="privacy-title">Your tasks are personal. They should stay that way.</h3>
+        <p>
+          Your productivity content is stored locally on your device.
+          Tsk.R also uses Google services for advertising and related
+          functionality; those services may process certain technical
+          and advertising-related data. Read the full policy for details.
+        </p>
+        <p>
+          <a href="privacy-policy.html">Read the privacy policy →</a>
+        </p>
+      </div>
+    </section>
   </main>
+
+  <footer class="container">
+    <span>© 2026 Brixavier · Made for getting things done.</span>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="privacy-policy.html">Privacy policy</a>
+      <a href="mailto:brixavier03@gmail.com">Contact developer</a>
+    </nav>
+  </footer>
 </body>
 </html>
